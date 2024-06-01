@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <title>Pengukur Sentimen Pilpres</title>
+</head>
+<body>
+    <header class="bg-cyan-950">
+        <div class="w-full flex justify-between py-6 px-9">
+            <h1 class="text-lg font-bold text-white">PENGUKUR SENTIMEN PEMILIHAN PRESIDEN 2024</h1>
+            <ul class="text-white flex gap-3">
+                <li><a href="#capres">Home</a></li>
+                <li><a href="#sentimen">Analisis</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="py-10" id="capres">
+        <div class="container">
+            <div class="flex justify-between px-4">
+                <div class="mb-12 p-4">
+                    <a href="paslon/1">
+                        <div class="overflow-hidden rounded-md shadow-md">
+                            <img src="../static/assets/amin.jpeg" alt="Amin" class="h-72 object-cover"/>
+                            <h3 class="mx-3 mt-5 mb-3 text-xl font-semibold">Anies - Cak Imin</h3>
+                            <p class="mx-3 mb-3 text-base text-cyan-700 font-medium text-secondary">Persentase Sentimen</p>
+                            
+                            <div class="h-2 w-5/6 mx-auto rounded-full flex mb-4">
+                                <div class="h-2 bg-cyan-700 rounded-s-full" id="p1"></div>
+                                <div class="h-2 bg-yellow-500" id="n1"></div>
+                                <div class="h-2 bg-red-700 rounded-e-full" id="ng1"></div>
+                            </div>
+
+                            <div class="w-5/6 mx-auto flex justify-between mb-5">
+                                <div class="flex gap-2 items-center">
+                                    <div class="w-3 h-3 bg-cyan-700"></div>
+                                    <p class="text-base font-medium">{{ data[0][1] }}% positif</p>
+                                </div>
+                                <div class="flex gap-2 items-center">
+                                    <div class="w-3 h-3 bg-yellow-500"></div>
+                                    <p class="text-base font-medium">{{ data[0][2] }}% netral</p>
+                                </div>
+                                <div class="flex gap-2 items-center">
+                                    <div class="w-3 h-3 bg-red-700"></div>
+                                    <p class="text-base font-medium">{{ data[0][3] }}% negatif</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Pragib -->
+                <div class="mb-12 p-4">
+                    <a href="paslon/2">
+                        <div class="overflow-hidden rounded-md shadow-md">
+                            <img src="../static/assets/pragib.jpg" alt="Pragib" class="h-72 object-cover mx-auto"/>
+                            <h3 class="mx-3 mt-5 mb-3 text-xl font-semibold">Prabowo - Gibran </h3>
+                            <p class="mx-3 mb-3 text-base text-cyan-700 font-medium text-secondary">Persentase Sentimen</p>
+                            
+                            <div class="h-2 w-5/6 mx-auto rounded-full flex mb-4">
+                                <div class="h-2 bg-cyan-700 rounded-s-full" id="p2"></div>
+                                <div class="h-2 bg-yellow-500" id="n2"></div>
+                                <div class="h-2 bg-red-700 rounded-e-full" id="ng2"></div>
+                            </div>
+
+                            <div class="w-5/6 mx-auto flex justify-between mb-5">
+                                <div class="flex gap-2 items-center">
+                                    <div class="w-3 h-3 bg-cyan-700"></div>
+                                    <p class="text-base font-medium">{{ data[1][1] }}% positif</p>
+                                </div>
+                                <div class="flex gap-2 items-center">
+                                    <div class="w-3 h-3 bg-yellow-500"></div>
+                                    <p class="text-base font-medium">{{ data[1][2] }}% netral</p>
+                                </div>
+                                <div class="flex gap-2 items-center">
+                                    <div class="w-3 h-3 bg-red-700"></div>
+                                    <p class="text-base font-medium">{{ data[1][3] }}% negatif</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Ganjar - Mahfud -->
+                <div class="mb-12 p-4">
+                    <a href="paslon/3">
+                        <div class="overflow-hidden rounded-md shadow-md">
+                            <img src="../static/assets/ganmah.jpg" alt="Ganmah" class="h-72 object-cover"/>
+                            <h3 class="mx-3 mt-5 mb-3 text-xl font-semibold">Ganjar - Mahfud</h3>
+                            <p class="mx-3 mb-3 text-base text-cyan-700 font-medium text-secondary">Persentase Sentimen</p>
+                            
+                            <div class="h-2 w-5/6 mx-auto rounded-full flex mb-4">
+                                <div class="h-2 bg-cyan-700 rounded-s-full" id="p3"></div>
+                                <div class="h-2 bg-yellow-500" id="n3"></div>
+                                <div class="h-2 bg-red-700 rounded-e-full" id="ng3"></div>
+                            </div>
+
+                            <div class="w-5/6 mx-auto flex justify-between mb-5">
+                                <div class="flex gap-2 items-center">
+                                    <div class="w-3 h-3 bg-cyan-700"></div>
+                                    <p class="text-base font-medium">{{ data[2][1] }}% positif</p>
+                                </div>
+                                <div class="flex gap-2 items-center">
+                                    <div class="w-3 h-3 bg-yellow-500"></div>
+                                    <p class="text-base font-medium">{{ data[2][2] }}% netral</p>
+                                </div>
+                                <div class="flex gap-2 items-center">
+                                    <div class="w-3 h-3 bg-red-700"></div>
+                                    <p class="text-base font-medium">{{ data[2][3] }}% negatif</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>    
+    </section>
+
+    <!-- Input Teks -->
+    <section class="pb-10" id="sentimen">
+        <div class="container mb-10">
+            <div class="flex justify-between items-center mb-5">
+                <div class="h-1 w-1/2 bg-cyan-950"></div>
+                <h2 class="text-center mb-2 text-2xl font-semibold text-cyan-900">Analisis Sentimen Status Media Sosial</h2>
+                <div class="h-1 w-1/2 bg-cyan-950"></div>
+            </div>
+
+            <p class="text-center text-base mb-5">Unggah file data sentimen CSV yang akan dianalisis</p>
+
+            <form action="/analisis" method="post" enctype="multipart/form-data">
+                <div class="flex flex-col items-center justify-center w-1/2 mx-auto">
+                    <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-slate-300 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-slate-500 transition duration-300 ease-in-out">
+                        <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                            <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
+                            </svg>
+                            <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+                            <p class="text-xs text-gray-500 dark:text-gray-400">CSV or XLXS (MAX. 2MB)</p>
+                        </div>
+                        <input id="dropzone-file" type="file" name="file" class="hidden" />
+                    </label>
+                </div>
+                <div class="w-1/2 mx-auto px-4 mt-5">
+                    <input type="submit" value="Analisis" class="w-full font-bold py-3 px-8 bg-cyan-950 text-white rounded-full hover:opacity-80 transition duration-300 ease-in-out">
+                </div>
+            </form>
+
+            <p class="text-center text-xl mt-5">Atau</p>
+            <p class="text-center text-base mb-5">Inputkan status media sosial seperti tweet, mention, reply yang akan dianalisis</p>
+            <form action="/hasil" method="post">
+                <div class="w-3/4 mx-auto px-4 pb-3">
+                    <textarea name="message" id="message" placeholder="Status.." class="w-full h-40 rounded-lg py-5 px-5 bg-slate-300 text-gray-700 focus:outline-none focus:ring-1 focus:ring-profile1 focus:border-profile1"></textarea>
+                </div>
+        
+                <!-- Input Submit Button -->
+                <div class="w-1/2 mx-auto px-4 mt-2">
+                    <input type="submit" value="Klasifikasi" class="w-full font-bold py-3 px-8 bg-cyan-950 text-white rounded-full hover:opacity-80 transition duration-300 ease-in-out">
+                </div>
+            </form>
+
+        </div>
+    </section>    
+
+    <footer class="bg-cyan-950 py-4">
+        <p class="text-center text-white">Created by @copyright 2024</span></p>
+    </footer>
+
+    <script>
+        document.getElementById('p1').style.width = '{{ data[0][1] }}%';
+        document.getElementById('n1').style.width = '{{ data[0][2] }}%';
+        document.getElementById('ng1').style.width = '{{ data[0][3] }}%';
+
+        document.getElementById('p2').style.width = '{{ data[1][1] }}%';
+        document.getElementById('n2').style.width = '{{ data[1][2] }}%';
+        document.getElementById('ng2').style.width = '{{ data[1][3] }}%';
+
+        document.getElementById('p3').style.width = '{{ data[2][1] }}%';
+        document.getElementById('n3').style.width = '{{ data[2][2] }}%';
+        document.getElementById('ng3').style.width = '{{ data[2][3] }}%';
+    </script>
+</body>
+</html>

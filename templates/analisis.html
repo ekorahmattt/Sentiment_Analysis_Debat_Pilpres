@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <link rel="stylesheet" href="../static/css/main.css">
+    <title>Pengukur Sentimen Pilpres</title>
+</head>
+<body>
+    <header class="bg-cyan-950">
+        <div class="w-full flex justify-between py-6 px-9">
+            <h1 class="text-lg font-bold text-white">PENGUKUR SENTIMEN PEMILIHAN PRESIDEN 2024</h1>
+            <ul class="text-white flex gap-3">
+                <li><a href="#capres">Home</a></li>
+                <li><a href="#sentimen">Analisis</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="pt-10" id="result">
+        <div class="container mb-10">
+            <div class="px-10">
+                <h1 class="text-2xl font-bold text-cyan-700">Hasil Analisis</h1>
+            </div>
+
+            <div class="p-5 mx-10 mt-5 shadow-xl">
+                <div class="flex items-center justify-evenly">
+                    <div class="container w-1/2">
+                        <canvas id="persen"></canvas>
+                    </div>
+
+                    <div class="flex-col text-2xl">
+                        <h1 class="text-xl font-bold pb-10">Persentase Sentimen Pada File {{filename}}</h1>
+                        <div class="flex gap-3 items-center">
+                            <div class="w-10 h-10 bg-cyan-700"></div>
+                            <p class="font-medium">{{positif}}% positif</p>
+                        </div>
+                        
+                        <div class="flex gap-3 items-center">
+                            <div class="w-10 h-10 bg-yellow-500"></div>
+                            <p class="font-medium">{{netral}}% netral</p>
+                        </div>
+                        
+                        <div class="flex gap-3 items-center">
+                            <div class="w-10 h-10 bg-red-700"></div>
+                            <p class="font-medium">{{negatif}}% negatif</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="pt-5" id="wd">
+        <div class="container mb-10 flex shadow-lg">
+            <div class="p-5 mx-10 w-1/2">
+                <img src="../static/wordcloud/wordcloud.png" alt="wordcloud">
+            </div>
+            <div class="p-5">
+                <h2 class="text-center font-bold text-xl pb-5">Kata Terbanyak yang Muncul</h2>
+                <table class="table-auto text-lg">
+                    <thead>
+                        <tr class="text-center">
+                            <th>Kata</th>
+                            <th>Jumlah</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for x in freq %}
+                            <tr>
+                                <td class="pe-10">{{ x }}</td>
+                                <td>{{ freq[x] }}  kata</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <script type="module">
+        let x = ['positif','netral','negatif'];
+        let y = ['{{ positif }}','{{ netral }}','{{ negatif }}'];
+        let color = ['rgb(14,116,144)','rgb(234,179,8)','rgb(185,28,28)']
+
+        const persen = new Chart(
+            document.getElementById('persen'), {
+            type: "doughnut",
+            data: {
+                labels: x,
+                datasets: [{
+                    backgroundColor: color,
+                    data: y
+                }]
+            },
+            options:{
+                legend:{
+                    display: false
+                }
+            }
+        });
+    </script>
+</body>
+</html>

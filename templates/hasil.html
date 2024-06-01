@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <link rel="stylesheet" href="../static/css/main.css">
+    <title>Pengukur Sentimen Pilpres</title>
+</head>
+<body>
+    <header class="bg-cyan-950">
+        <div class="w-full flex justify-between py-6 px-9">
+            <h1 class="text-lg font-bold text-white">PENGUKUR SENTIMEN PEMILIHAN PRESIDEN 2024</h1>
+            <ul class="text-white flex gap-3">
+                <li><a href="#capres">Home</a></li>
+                <li><a href="#sentimen">Analisis</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="pt-10" id="result">
+        <div class="container mb-10">
+            <div class="px-10">
+                <h1 class="text-2xl font-bold text-cyan-700">Hasil Analisis</h1>
+            </div>
+
+            <div class="p-5 mx-10 shadow-xl">
+                <p class="text-2xl font-medium">"{{tweet}}"</p>
+            </div>
+
+            <div class="p-5 mx-10 mt-5 shadow-xl">
+                <div class="flex items-center justify-evenly">
+                    <div class="container w-1/2">
+                        <canvas id="persen"></canvas>
+                    </div>
+
+                    <div class="flex-col text-2xl">
+                        <h1 class="text-xl font-bold">Sentimen Terdeteksi</h1>
+                        {% if classify == 'Positif': %}
+                        <h1 class="font-bold text-3xl mb-10 text-cyan-700">{{classify}}</h1>
+                        {% elif classify == 'Netral': %}
+                        <h1 class="font-bold text-3xl mb-10 text-yellow-500">{{classify}}</h1>
+                        {% else %}
+                        <h1 class="font-bold text-3xl mb-10 text-red-700">{{classify}}</h1>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pt-5" id="cleaning">
+        <div class="container mb-10">
+            <div class="px-10">
+                <h1 class="text-2xl font-bold text-cyan-700">Text Cleaning</h1>
+            </div>
+
+            <div class="p-5 mx-10 shadow-xl">
+                <p class="text-lg font-medium">{{cleaned}}</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="pt-5" id="normalize">
+        <div class="container mb-10">
+            <div class="px-10">
+                <h1 class="text-2xl font-bold text-cyan-700">Teks Normalisasi</h1>
+            </div>
+
+            <div class="p-5 mx-10 shadow-xl">
+                <p class="text-lg font-medium">{{normal}}</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="pt-2" id="tokenizing">
+        <div class="container mb-10">
+            <div class="px-10">
+                <h1 class="text-2xl font-bold text-cyan-700">Tokenisasi</h1>
+            </div>
+
+            <div class="p-5 mx-10 shadow-xl">
+                <p class="text-lg font-medium">{{tokenized}}</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="pt-2" id="stemming">
+        <div class="container mb-10">
+            <div class="px-10">
+                <h1 class="text-2xl font-bold text-cyan-700">Stemming</h1>
+            </div>
+
+            <div class="p-5 mx-10 shadow-xl">
+                <p class="text-lg font-medium">{{stemmed}}</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="../static/js/hasil.js"></script>
+</body>
+</html>
